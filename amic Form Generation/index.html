@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Generation</title>
+    <style>
+        .form-field {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dynamic Form Builder</h1>
+    <div id="form-builder"></div>
+    <select id="field-type">
+        <option value="text">Text Input</option>
+        <option value="checkbox">Checkbox</option>
+        <option value="radio">Radio Button</option>
+    </select>
+    <button id="add-field">Add Field</button>
+
+    <script>
+        document.getElementById('add-field').addEventListener('click', function() {
+            const fieldType = document.getElementById('field-type').value;
+            const fieldContainer = document.createElement('div');
+            fieldContainer.className = 'form-field';
+            if (fieldType === 'text') {
+                const input = document.createElement('input');
+                input.type = 'text';
+                fieldContainer.appendChild(input);
+            } else if (fieldType === 'checkbox') {
+                const input = document.createElement('input');
+                input.type = 'checkbox';
+                fieldContainer.appendChild(input);
+            } else if (fieldType === 'radio') {
+                const input = document.createElement('input');
+                input.type = 'radio';
+                fieldContainer.appendChild(input);
+            }
+            document.getElementById('form-builder').appendChild(fieldContainer);
+        });
+    </script>
+</body>
+</html>
