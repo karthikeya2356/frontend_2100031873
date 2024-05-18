@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extraction of Words</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Extract and Highlight Words</h1>
+    <p id="text-paragraph">This is a paragraph containing several words, including some that are quite long and should be highlighted appropriately.</p>
+
+    <script>
+        const paragraph = document.getElementById('text-paragraph');
+        const text = paragraph.innerText;
+        const words = text.split(' ');
+        const highlightedText = words.map(word => {
+            if (word.length > 8) {
+                return `<span class="highlight">${word}</span>`;
+            }
+            return word;
+        }).join(' ');
+        paragraph.innerHTML = highlightedText;
+    </script>
+</body>
+</html>
